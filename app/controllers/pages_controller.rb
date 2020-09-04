@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @pools = Pool.where(active: true).limit(3)
+    @spaces = Space.where(active: true).limit(3)
   end
 
   def search
@@ -11,16 +11,16 @@ class PagesController < ApplicationController
 
     # STEP 2
     if session[:loc_search] && session[:loc_search] != ""
-      @pools_address = Pool.where(active: true).near(session[:loc_search], 5, order: 'distance')
+      @spaces_address = Space.where(active: true).near(session[:loc_search], 5, order: 'distance')
     else
-      @pools_address = Pool.where(active: true).all
+      @spaces_address = Space.where(active: true).all
     end
 
     # STEP 3
-    @search = @pools_address.ransack(params[:q])
-    @pools = @search.result
+    @search = @spaces_address.ransack(params[:q])
+    @spaces = @search.result
 
-    @arrPools = @pools.to_a
+    @arrSpaces = @spaces.to_a
 
     # STEP 4
     if (params[:start_date] && params[:end_date] && !params[:start_date].empty? &&  !params[:end_date].empty?)
@@ -28,9 +28,9 @@ class PagesController < ApplicationController
       start_date = Date.parse(params[:start_date])
       end_date = Date.parse(params[:end_date])
 
-      @pools.each do |pool|
+      @spaces.each do |space|
 
-        not_available = pool.reservations.where(
+        not_available = space.reservations.where(
           "((? <= start_date AND start_date <= ?)
           OR (? <= end_date AND end_date <= ?)
           OR (start_date < ? AND ? < end_date))
@@ -42,12 +42,12 @@ class PagesController < ApplicationController
         ).limit(1)
         
         not_available_in_calendar = Calendar.where(
-          "pool_id = ? AND status = ? AND day <= ? AND day >= ?",
-          pool.id, 1, end_date, start_date
+          "space_id = ? AND status = ? AND day <= ? AND day >= ?",
+          space.id, 1, end_date, start_date
         ).limit(1)
         
         if not_available.length > 0 || not_available_in_calendar.length > 0
-          @arrPools.delete(pool)
+          @arrSpaces.delete(space)
         end
       end
     end

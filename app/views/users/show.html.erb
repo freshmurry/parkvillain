@@ -49,10 +49,10 @@
         
         <!-- YOUR LISTNGS -->
         <div class="panel panel-default">
-          <div class="panel-heading">Listings (<%= @pools.length %>)</div>
+          <div class="panel-heading">Listings (<%= @spaces.length %>)</div>
             <div class="panel-body">
               <div class="container">
-                <%= render partial: "pools/pools_list", locals: {pools: @pools} %>
+                <%= render partial: "spaces/spaces_list", locals: {spaces: @spaces} %>
               </div>
             </div>
         </div>

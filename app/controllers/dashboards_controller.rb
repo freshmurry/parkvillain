@@ -2,6 +2,6 @@ class DashboardsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @pools = current_user.pools
+    @spaces = current_user.spaces
   end
 end

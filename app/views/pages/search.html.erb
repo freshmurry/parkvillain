@@ -44,24 +44,26 @@
                 </div>
                 <hr/>
                     
-              <div class="row">
-                <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group select">
+                      <label>Space Type</label>
+                      <%= f.select :space_type_gteq, [["Covered", "Covered"], ["Uncovered", "Uncovered"]], id: "space_type", prompt: "Select...", class: "form-control" %>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <div class="form-group select">
+                      <label>Surveillance</label>
+                      <%= f.select :surveillance, [["CCTV", "CCTV"], ["24/7 Parking Attendant", "24/7 Parking Attendant"], ["None", "None"]], id: "surveillance", prompt: "Select...", class: "form-control" %>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
                   <div class="form-group select">
-                    <label>Accommodate</label>
-                      <%= f.select :accommodate_gteq, [["1", 1], ["2", 2], ["3", 3], ["4", 4]],
+                    <label>Electric Vehicle Space</label>
+                      <%= f.select :electric_space_gteq, [["Yes", "Yes"], ["No", "No"]],
                        id: "accommodate", prompt: "Select...", class: "form-control" %>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group select">
-                      <label>Pool Type</label>
-                      <%= f.select :pool_type_gteq, [["Above Ground", "Above Ground"], ["In-Ground", "In-Ground"]], id: "pool_type", prompt: "Select...", class: "form-control" %>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group select">
-                      <label>Restrooms</label>
-                      <%= f.select :restrooms_gteq, [["1", "1"], ["2", "2"], ["None", "None"]], id: "restrooms", prompt: "Select...", class: "form-control" %>
                     </div>
                   </div>
                 </div>
@@ -73,50 +75,41 @@
                       <div class="panel-body">
                         <div class="container">
                           <div class="col-md-4">
-                            <%= check_box_tag "q[is_towels_eq_any]", "true" %> Towels
+                            <%= check_box_tag "q[is_handi_accessible_eq_any]", "true" %> Handi-Accessible
                           </div>
                           
                           <div class="col-md-4">
-                            <%= check_box_tag "q[is_accessible_eq_any]", "true" %> Accessible
-                          </div>
-                
-              
-                          <div class="col-md-4">
-                            <%= check_box_tag "q[is_chairs_eq_any]", "true" %> Chairs
+                            <%= check_box_tag "q[is_stairs_eq_any]", "true" %> Stairs
                           </div>
                           
                           <div class="col-md-4">
-                            <%= check_box_tag "q[is_speaker_eq_any]", "true" %> Portable Speaker
+                            <%= check_box_tag "q[is_elevator_eq_any]", "true" %> Elevator
                           </div>
                           
                           <div class="col-md-4">
-                            <%= check_box_tag "q[is_parking_eq_any]", "true" %> Non-Permit Street Parking
+                            <%= check_box_tag "q[is_unheated_eq_any]", "true" %> Heated
                           </div>
                           
                           <div class="col-md-4">
-                            <%= check_box_tag "q[is_garage_parking_eq_any]", "true" %> Garage Parking
-                          </div>
-                          
-                          <div class="col-md-4">
-                            <%= check_box_tag "q[is_heating_eq_any]", "true" %> Heated Pool
+                            <%= check_box_tag "q[is_unheated_eq_any]", "true" %> Unheated
                           </div>
                         </div>  
                       </div>
                     </div>
                   </div>
-      
+                  
                 <hr/>
-      
+                      
                 <div class="row text-center">
                   <%= f.submit "Search", class: "btn btn-form" %>
                 </div>
               <% end %>
             </div>
-            
+                      
             <br/>
-      
-            <div class="row" id="pool_listing">
-              <%= render partial: "pools/pools_list", locals: {pools: @arrPools} %>
+                
+            <div class="row" id="space_listing">
+              <%= render partial: "spaces/spaces_list", locals: {spaces: @arrSpaces} %>
             </div>
           </div>
         </div>
@@ -130,11 +123,11 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwN_tpAAKnHhy14HzNqK-XeuarVJhNHg8"></script>
         
         <script>
-          function initialize(pools) {
+          function initialize(spaces) {
             var location = {lat: 41.881832, lng: -87.623177}
             
-            if (pools.length > 0) {
-              location = {lat: pools[0].latitude, lng: pools[0].longitude}
+            if (spaces.length > 0) {
+              location = {lat: spaces[0].latitude, lng: spaces[0].longitude}
             }
     
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -144,14 +137,14 @@
     
             var marker, inforwindow;
     
-            pools.forEach(function(pool) {
+            spaces.forEach(function(space) {
               marker = new google.maps.Marker({
-                position: {lat: pool.latitude, lng: pool.longitude},
+                position: {lat: space.latitude, lng: space.longitude},
                 map: map
               });
     
               inforwindow = new google.maps.InfoWindow({
-                content: "<div class='map_price'>$" + pool.price + "</div>"
+                content: "<div class='map_price'>$" + space.price + "</div>"
               });
     
               inforwindow.open(map, marker);
@@ -159,7 +152,7 @@
           }
     
           google.maps.event.addDomListener(window, 'load', function() {
-            initialize(<%= raw @arrPools.to_json %>)
+            initialize(<%= raw @arrSpacess.to_json %>)
           });
         </script>
       </div>

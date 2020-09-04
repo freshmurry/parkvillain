@@ -1,4 +1,4 @@
-class Pool < ApplicationRecord
+class Space < ApplicationRecord
   enum instant: {Request: 0, Instant: 1}
   
   belongs_to :user, required: false
@@ -11,7 +11,7 @@ class Pool < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   
-  validates :pool_type, presence: true
+  validates :space_type, presence: true
   validates :accommodate, presence: true
   validates :restrooms, presence: true
   validates :lifesaver, presence: true

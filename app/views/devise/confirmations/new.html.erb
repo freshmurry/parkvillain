@@ -1,4 +1,36 @@
-<<<<<<< HEAD
+<div class="panel panel-default" style="margin-right: -45px; margin-left: -45px;">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <h2>Resend confirmation instructions</h2>
+    </div>
+  </div>  
+    
+  <div class="container">
+    <div class="panel-body">
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render 'shared/devisemes' %>
+      <%= f.hidden_field :reset_password_token, class: "form-control" %>
+      <div class="form-group">
+        <%= "Ah shucks! Some email sites tend to be a bit crabby. Check your spam box before resubmitting confirmation instructions." %>
+      </div>
+        
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      </div>
+            
+      <div class="form-group">
+        <%= f.submit "Resend confirmation instructions", class: "btn btn-normal" %>
+      </div>
+    </div>
+  </div>  
+  <% end %>
+      
+  <div class="panel-footer">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+  
+  
 <div class="panel-heading">
   <div class="panel-title">
     <h2>Resend confirmation instructions</h2>
@@ -20,35 +52,3 @@
   <% end %>
 </div>
 <%= render "devise/shared/links" %>
-=======
-  <div class="panel panel-default" style="margin-right: -45px; margin-left: -45px;">
-    <div class="panel-heading">
-      <div class="panel-title">
-        <h2>Resend confirmation instructions</h2>
-      </div>
-    </div>  
-    
-    <div class="container">
-      <div class="panel-body">
-        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-        <div class="form-group">
-          <%= "Ah shucks! Some email sites tend to be a bit crabby. Check your spam box before resubmitting confirmation instructions." %>
-        </div>
-        
-        <div class="form-group">
-          <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-        </div>
-        
-        <div class="form-group">
-          <%= f.submit "Resend confirmation instructions", class: "btn btn-normal" %>
-        </div>
-      </div>
-    </div>  
-    <% end %>
-    
-    <div class="panel-footer">
-      <%= render "devise/shared/links" %>
-    </div>
-  
-  </div>
->>>>>>> 3906278811c5dda65e4ada8b7ad8477deef7fa61

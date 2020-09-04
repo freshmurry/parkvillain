@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.date     "day"
     t.integer  "price"
     t.integer  "status"
-    t.integer  "pool_id"
+    t.integer  "space_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pool_id"], name: "index_calendars_on_pool_id"
+    t.index ["space_id"], name: "index_calendars_on_space_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -48,47 +48,19 @@ ActiveRecord::Schema.define(version: 20180109174910) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer  "pool_id"
+    t.integer  "space_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.index ["pool_id"], name: "index_photos_on_pool_id"
-  end
-
-  create_table "pools", force: :cascade do |t|
-    t.string   "pool_type"
-    t.string   "location_type"
-    t.string   "address"
-    t.string   "listing_name"
-    t.string   "lifesaver"
-    t.text     "description"
-    t.integer  "accommodate"
-    t.integer  "restrooms"
-    t.boolean  "is_towels"
-    t.boolean  "is_garage_parking"
-    t.boolean  "is_heated_pool"
-    t.boolean  "is_parking"
-    t.boolean  "is_chairs"
-    t.boolean  "is_speaker"
-    t.boolean  "is_accessible"
-    t.integer  "price"
-    t.integer  "tip"
-    t.boolean  "active"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.integer  "instant"
-    t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["user_id"], name: "index_pools_on_user_id"
+    t.index ["space_id"], name: "index_photos_on_space_id"
   end
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "pool_id"
+    t.integer  "space_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "price"
@@ -96,14 +68,14 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "status",     default: 0
-    t.index ["pool_id"], name: "index_reservations_on_pool_id"
+    t.index ["space_id"], name: "index_reservations_on_space_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.text     "comment"
     t.integer  "star",           default: 1
-    t.integer  "pool_id"
+    t.integer  "space_id"
     t.integer  "reservation_id"
     t.integer  "guest_id"
     t.integer  "host_id"
@@ -112,8 +84,8 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.datetime "updated_at",                 null: false
     t.index ["guest_id"], name: "index_reviews_on_guest_id"
     t.index ["host_id"], name: "index_reviews_on_host_id"
-    t.index ["pool_id"], name: "index_reviews_on_pool_id"
     t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
+    t.index ["space_id"], name: "index_reviews_on_space_id"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -123,6 +95,31 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["user_id"], name: "index_settings_on_user_id"
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.string   "space_type"
+    t.string   "location_type"
+    t.string   "address"
+    t.string   "listing_name"
+    t.text     "description"
+    t.boolean  "is_unheated_space"
+    t.boolean  "is_heated_space"
+    t.boolean  "is_surveillance"
+    t.boolean  "is_handi_accessible"
+    t.boolean  "is_electric_space"
+    t.boolean  "is_stairs"
+    t.boolean  "is_elevator"
+    t.integer  "price"
+    t.integer  "tip"
+    t.boolean  "active"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "instant"
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["user_id"], name: "index_spaces_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

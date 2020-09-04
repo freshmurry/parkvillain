@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :fullname, presence: true, length: {maximum: 50}
   
   has_attached_file :avatar  
-  has_many :pools
+  has_many :spaces
   has_many :reservations
   
   has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id"
@@ -55,7 +55,7 @@ class User < ApplicationRecord
       # from: '+15005550006',
       from: '+12013796812', 
       to: self.phone_number,
-      body: "Your PoolCrasher pin is #{self.pin}"
+      body: "Your ParkVillain pin is #{self.pin}"
     )
   end
 

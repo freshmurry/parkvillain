@@ -1,20 +1,16 @@
-<!--<header class="page-header bg-img-cover overlay overlay-primary overlay-90 page-header-dark" style="background-image: url('https://source.unsplash.com/g39p1kDjvSY/1600x1200');">-->
-<!--<header class="page-header bg-img-cover overlay overlay-primary overlay-90 page-header-dark" style="background-image: url('https://i.pinimg.com/originals/fd/7a/9e/fd7a9ea2a02b9cd3a05ea4dbe55ee837.jpg');">-->
-<!--<header class="page-header bg-img-cover overlay overlay-primary overlay-90 page-header-dark" style="background-image: url('https://www.poolsbyextreme.com/zupload/library/130/-302-800x600-0.jpg');">-->
-<!--<header class="page-header bg-img-cover overlay overlay-primary overlay-90 page-header-dark" style="background-image: url('https://media-public.canva.com/MADQ5iuyKcY/1/screen.jpg');">-->
-<header class="page-header bg-img-cover overlay overlay-primary overlay-90 page-header-dark" style="background-image: url('https://media-public.canva.com/bI7gM/MADyRtbI7gM/1/s3.jpg');">
+<header class="page-header bg-img-cover overlay overlay-primary overlay-90 page-header-dark" style="background-image: url('/assets/marina-city-parking.jpg');">
   <div class="page-header-content py-5">
     <div class="container">
       <div class="row banner">
         <div class="col-xl-8 col-lg-10 text-center">
-          <h1 class="page-header-title">Awesome Local Pools</h1>
-          <h4 class="page-header-text mb-5">Book pool time by the day</h4>
+          <h1 class="page-header-title">Awesome Local Parking Spaces</h1>
+          <h4 class="page-header-text mb-5">Parking Space Rental</h4>
           <div class="form-row justify-content-center">
             <div class="col-lg-9 col-md-8">
               <div class="form-group mr-0 mr-lg-2">
                 <%= form_tag search_path, method: :get do %>
                 
-                <%= text_field_tag :search, params[:search], placeholder: "Search for a Pool in Your Neighborhood", class: "form-control", id: "autolocation" %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search for a Parking Space", class: "form-control", id: "autolocation" %>
               </div>
             </div>
             
@@ -35,35 +31,35 @@
 
 <br>
 
-<!-- POOLS -->
+<!-- SPACES -->
 <section class="">
   <div class="container">
     <div class="banner text-center">
-    	<h2 class="text-blue">Pools Near You</h2>
-      <h3>Book and rent pool time in your neighborhood</h3>
+    	<h2 class="text-blue">Spaces Near You</h2>
+      <h3>Book and Rent a Parking Space</h3>
     </div>
     <br/>
       
     <div class="row">
-      <%= render partial: "pools/pools_list", locals: {pools: @pools} %>
+      <%= render partial: "spaces/spaces_list", locals: {spaces: @spaces} %>
     </div>
   </div>
 </section>
   
-<!-- HOW POOLCRASHER WORKS -->
+<!-- HOW PARKVILLAIN WORKS -->
 <section class="">
   <div class="container">
     <div class="page-section">
     <div class="banner text-center">
-     	<h2 class="text-blue">How PoolCrasher Works</h2>
+     	<h2 class="text-blue">How ParkVillain Works</h2>
       <h3>Contact-less Awesomeness</h3>
     </div>
         
     <div class="row text-center">
       <div class="col-md-4">
-      <div class="fas fa-swimming-pool fa-4x text-blue"></div>
-        <h3 class="my-3">Find a Pool</h3>
-        <p class="text-center">Search for a pool near you, wait until the host confirm your date, and await your approval. Listings with the <i class="fa fa-bolt" style="color: #ffb400"></i> icon will be booked instantly.</p>
+      <div class="fas fa-car fa-4x text-blue"></div>
+        <h3 class="my-3">Find a Space</h3>
+        <p class="text-center">Search for a parking space near you, wait until the host confirm your date, and await your approval. Listings with the <i class="fa fa-bolt" style="color: #ffb400"></i> icon will be booked instantly.</p>
       </div>
                         
       <div class="col-md-4">
@@ -103,20 +99,20 @@
           <div class="col-lg-4">
             <div class="discovery-card" style="background-image: url('/assets/testimonials-1.jpg')" alt="Customer 1"></div>
             <h3>Katy S.</h3>
-            <p class="text-center">With the beaches closed, I was in utter amazement to find that people in my own neighborhood renting pool time. So happy I found PoolCrasher.</p>
+            <p class="text-center">I was in utter amazement to find that people in my building was making money renting out their parking space. My parking space is included in my
+            monthly HOA fee. Being able to rent my space out adds money back into my pockets each month. So happy I found ParkVillain.</p>
           </div>  
       
           <div class="col-lg-4">
             <div class="discovery-card" style="background-image: url('/assets/testimonials-2.jpg')" alt="Customer 2"></div>
             <h3>Larry P.</h3>
-            <p class="text-center">There's probably no other better way to beat the summer's heat. Living in an apartment doen't come with a backyard pool. 
-            I booked a PoolCrasher for my girlfriend and I and enjoyed our time in the water.</p>
+            <p class="text-center">There's probably no other better way to find parking. Visiting friends downtown, finding parking is always a huge hassle. I found ParkVillain, booked a space, and really enjoyed that it was covered and heated.</p>
           </div>
       			
           <div class="col-lg-4">
             <div class="discovery-card" style="background-image: url('/assets/testimonials-3.jpg')" alt="Customer 3"></div>
             <h3>Diana W.</h3>
-            <p class="text-center">I left my sunscreen and towel at home and my PoolCrasher host was super helpful in providing this prior to my arrival. I will be booking again soon!</p>
+            <p class="text-center">A friend told me book a space in her lot through ParkVillain. The host accepted my request within minutes. I'm sure that I will be booking again soon!</p>
           </div>
         </div>
         
@@ -135,12 +131,12 @@
 <!-- CITIES -->
 <section class="">
   <div class="container">
-    <div class="banner text-blue text-center"><h2>PoolCrasher in other Cities Coming Soon!</h2></div>
+    <div class="banner text-blue text-center"><h2>ParkVillain in other Cities Coming Soon!</h2></div>
     <br/>
     
     <div class="row">
       <div class="col-md-4">
-    		<a href="https://poolcrasher.herokuapp.com/search?utf8=✓&search=chicago">
+    		<a href="https://parkvillain.herokuapp.com/search?utf8=✓&search=chicago">
     			<div class="discovery-card" style="background-image: url('/assets/chicago.jpg')">
     				<div class="va-container">
     					<div class="va-middle text-center">
@@ -152,7 +148,7 @@
     	</div>
     
     	<div class="col-md-4">
-    		<a href="https://poolcrasher.herokuapp.com/search?utf8=✓&search=atlanta">
+    		<a href="https://parkvillain.herokuapp.com/search?utf8=✓&search=atlanta">
     			<div class="discovery-card" style="background-image: url('/assets/atlanta.jpg')">
     				<div class="va-container">
     					<div class="va-middle text-center">
@@ -164,7 +160,7 @@
     	</div>
     
     	<div class="col-md-4">
-    		<a href="https://poolcrasher.herokuapp.com/search?utf8=✓&search=dallas">
+    		<a href="https://parkvillain.herokuapp.com/search?utf8=✓&search=dallas">
     			<div class="discovery-card" style="background-image: url('/assets/dallas.jpg')">
     				<div class="va-container">
     					<div class="va-middle text-center">

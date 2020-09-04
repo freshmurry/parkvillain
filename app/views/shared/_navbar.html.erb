@@ -8,14 +8,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "PoolCrasher", root_path, class: "navbar-brand" %>
+      <%= link_to "ParkVillain", root_path, class: "navbar-brand" %>
       <!--< link_to image_tag("icon.svg", alt: "logo"), root_path, class: "navbar-brand" %>-->
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div id="navbar" class="navbar-collapse collapse">
      <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
           <div class="form-group">
-            <%= text_field_tag :search, params[:search], placeholder: "Pools Near You", class: "form-control", id:"autoaddress" %>
+            <%= text_field_tag :search, params[:search], placeholder: "Parking Spaces Near You", class: "form-control", id:"autoaddress" %>
           </div>
       <% end %>
       
@@ -23,7 +23,7 @@
         <% if (!user_signed_in?) %>
           <li>
             <button class="btn btn-form btn-small">
-              <%= link_to "List a Pool", new_user_registration_path, style: "color: white; text-decoration: none;" %>
+              <%= link_to "List a Parking Space", new_user_registration_path, style: "color: white; text-decoration: none;" %>
             </button>
           </li>
           <li><%= link_to "Login", new_user_session_path %></li>
@@ -31,7 +31,7 @@
         <% else %>
           <li>
             <button class="btn btn-form btn-small">
-              <%= link_to "List a Pool", new_pool_path, style: "color: white; text-decoration: none;" %>
+              <%= link_to "List a Space", new_space_path, style: "color: white; text-decoration: none;" %>
             </button>
           </li>
           <li>
@@ -49,8 +49,8 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Dashboard", dashboard_path %></li>
-              <li><%= link_to "Manage Listing", pools_path %></li>
-              <li><%= link_to "List a Pool", new_pool_path %></li>
+              <li><%= link_to "Manage Listing", spaces_path %></li>
+              <li><%= link_to "List a Space", new_space_path %></li>
               <li><%= link_to "Previous Reservations", previous_reservations_path %></li>
               <li><%= link_to "Current Reservations", current_reservations_path %></li>
               <li role="separator" class="divider"></li>
@@ -70,7 +70,7 @@
       <ul class="nav navbar-nav">
         <li <% if current_page?(current_user) %> class="active" <% end %> ><%= link_to "Profile", current_user %></li>
         <li <% if current_page?(dashboard_path) %> class="active" <% end %> ><%= link_to "Dashboard", dashboard_path %></li>
-        <li <% if current_page?(pools_path) %> class="active" <% end %> ><%= link_to "Manage Listings", pools_path %></li>
+        <li <% if current_page?(spaces_path) %> class="active" <% end %> ><%= link_to "Manage Listings", spaces_path %></li>
         <li <% if current_page?(conversations_path) %> class="active" <% end %> ><%= link_to "Messages", conversations_path %></li>
         <li <% if current_page?(revenues_path) %> class="active" <% end %> ><%= link_to "Revenues", revenues_path %></li>
         <li <% if current_page?(current_reservations_path) %> class="active" <% end %> ><%= link_to "Current Reservations", current_reservations_path %></li>

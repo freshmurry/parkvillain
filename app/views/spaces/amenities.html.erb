@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <%= render 'pool_menu' %>
+        <%= render 'space_menu' %>
       </div>
       <div class="col-md-9">
         <div class="panel panel-default">
@@ -13,35 +13,23 @@
     
           <div class="panel-body">
             <div class="container">
-              <%= form_for @pool do |f| %>
+              <%= form_for @space do |f| %>
     
                   <div class="row form-group">
                     <div class="col-md-4">
-                      <%= f.check_box :is_heated_pool %> Heated Pool
-                    </div>
-                    <div class="col-md-4">
-                      <%= f.check_box :is_chairs %> Chairs
-                    </div>
-                    <div class="col-md-4">
-                      <%= f.check_box :is_accessible %> Accessible
+                      <%= f.check_box :is_heated_space %> Heated Space
                     </div>
                   </div>
     
                   <div class="row form-group">
                     <div class="col-md-4">
-                      <%= f.check_box :is_parking %> Parking
-                    </div>
-                    <div class="col-md-4">
-                      <%= f.check_box :is_speaker %> Portable Speaker
-                    </div>
-                    <div class="col-md-4">
-                      <%= f.check_box :is_garage_parking %> Garage Parking
+                      <%= f.check_box :is_chairs %> Unheated Space
                     </div>
                   </div>
                   
                   <div class="row form-group">
                     <div class="col-md-4">
-                      <%= f.check_box :is_towels %> Towels
+                      <%= f.check_box :is_handi_accessible %> Handi-Accessible
                     </div>
                   </div>
                   

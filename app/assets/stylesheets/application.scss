@@ -3,7 +3,7 @@
 @import "toastr";
 @import "fullcalendar";
 
-// For separting pool's key features into two colums on pools/shows
+// For separting space's key features into two colums on spaces/shows
 // @media only screen and (max-width: 768px) {
 //   .row.text-babu.text-center {
 //     width: 50%;
@@ -71,7 +71,7 @@ h4.my-3 {
 
 // HEADER
 header {
-  background-image: url('https://i.pinimg.com/originals/fd/7a/9e/fd7a9ea2a02b9cd3a05ea4dbe55ee837.jpg');
+  background-image: url('/assets/marina-city-parking.jpg');
 }
 
 .page-header {
@@ -460,7 +460,7 @@ ul.nav.navbar-nav.navbar-right a {
   box-sizing: border-box;
 }
 
-// POOL SHOW
+// SPACE SHOW
 .amenities li {
   margin-bottom: 10px;
   font-size: 16px;

@@ -1,16 +1,16 @@
 class GuestReviewsController < ApplicationController
 
   def create
-    # Step 1: Check if the reservation exist (pool_id, host_id, host_id)
+    # Step 1: Check if the reservation exist (space_id, host_id, host_id)
 
     # Step 2: Check if the current host already reviewed the guest in this reservation.
 
     @reservation = Reservation.where(
                     id: guest_review_params[:reservation_id],
-                    pool_id: guest_review_params[:pool_id]
+                    space_id: guest_review_params[:space_id]
                    ).first
 
-    if !@reservation.nil? && @reservation.pool.user.id == guest_review_params[:host_id].to_i
+    if !@reservation.nil? && @reservation.space.user.id == guest_review_params[:host_id].to_i
 
       @has_reviewed = GuestReview.where(
                         reservation_id: @reservation.id,
@@ -41,6 +41,6 @@ class GuestReviewsController < ApplicationController
 
   private
     def guest_review_params
-      params.require(:guest_review).permit(:comment, :star, :pool_id, :reservation_id, :host_id)
+      params.require(:guest_review).permit(:comment, :star, :space_id, :reservation_id, :host_id)
     end
 end

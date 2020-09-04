@@ -2,41 +2,34 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <%= render 'pool_menu' %>
+        <%= render 'space_menu' %>
       </div>
       <div class="col-md-9">
         <div class="panel panel-default">
     
           <div class="panel-heading">
-            Location
+            Pricing
           </div>
     
           <div class="panel-body">
             <div class="container">
-              <%= form_for @pool do |f| %>
+              <%= form_for @space do |f| %>
     
                 <div class="row">
                   <div class="form-group">
-                    <label>Address</label>
-                    <%= f.text_field :address, placeholder: "Where is your place of shop located?", class: "form-control", required: true, id: "autoaddress" %>
+                    <label>Price</label>
+                    <%= f.text_field :price, placeholder: "eg: $100", class: "form-control", required: true %>
                   </div>
                 </div>
-    
+                
                 <div class="text-center">
                   <%= f.submit "Save", class: "btn btn-form" %>
                 </div>
-    
               <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div>  
 </section>
-  
-<script>
-  $(function() {
-    $("#autoaddress").geocomplete();
-  })
-</script>
