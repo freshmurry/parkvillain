@@ -20,24 +20,24 @@
                   
                 <div class="col-md-4 select">
                   <div class="form-group">
-                    <label>Video Surveillance</label>
-                    <%= f.select :surveillance, [["Yes", "Yes"], ["No", "No"]], 
-                       id: "accommodate", prompt: "Select...", class: "form-control" %>
+                    <label>Surveillance</label>
+                    <%= f.select :is_surveillance, [["Yes", "Yes"], ["No", "No"]], 
+                       id: "is_surveillance", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                          
                 <div class="col-md-4 select">
                   <div class="form-group">
-                    <label>Restrooms</label>
-                    <%= f.select :restrooms, [["1", 1], ["2", 2], ["None", "None"]], id: "restrooms", prompt: "Select...", class: "form-control" %>
+                    <label>Electric Space</label>
+                    <%= f.select :is_electric_space, [["Yes", "Yes"], ["No", "No"]], id: "restrooms", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                 
                 <div class="col-md-4 select">
                   <div class="form-group">
-                    <label>Space Float/Lifesaver</label>
-                    <%= f.select :lifesaver, [["Yes", "Yes"], ["No", "No"]],
-                      id: "lifesaver", prompt: "Select...", class: "form-control" %>
+                    <label>Accessible</label>
+                    <%= f.select :is_handi_accessible, [["Yes", "Yes"], ["No", "No"]],
+                      id: "is_handi_accessible", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                 

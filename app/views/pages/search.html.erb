@@ -55,15 +55,15 @@
                   <div class="col-md-4">
                     <div class="form-group select">
                       <label>Surveillance</label>
-                      <%= f.select :surveillance, [["CCTV", "CCTV"], ["24/7 Parking Attendant", "24/7 Parking Attendant"], ["None", "None"]], id: "surveillance", prompt: "Select...", class: "form-control" %>
+                      <%= f.select :is_surveillance, [["CCTV", "CCTV"], ["24/7 Parking Attendant", "24/7 Parking Attendant"], ["None", "None"]], id: "is_surveillance", prompt: "Select...", class: "form-control" %>
                     </div>
                   </div>
                   
                   <div class="col-md-4">
                   <div class="form-group select">
                     <label>Electric Vehicle Space</label>
-                      <%= f.select :electric_space_gteq, [["Yes", "Yes"], ["No", "No"]],
-                       id: "accommodate", prompt: "Select...", class: "form-control" %>
+                      <%= f.select :is_electric_space_gteq, [["Yes", "Yes"], ["No", "No"]],
+                       id: "is_electric_space", prompt: "Select...", class: "form-control" %>
                     </div>
                   </div>
                 </div>
@@ -79,19 +79,15 @@
                           </div>
                           
                           <div class="col-md-4">
-                            <%= check_box_tag "q[is_stairs_eq_any]", "true" %> Stairs
-                          </div>
-                          
-                          <div class="col-md-4">
                             <%= check_box_tag "q[is_elevator_eq_any]", "true" %> Elevator
                           </div>
                           
                           <div class="col-md-4">
-                            <%= check_box_tag "q[is_unheated_eq_any]", "true" %> Heated
+                            <%= check_box_tag "q[is_unheated_eq_any]", "true" %> Unheated
                           </div>
                           
-                          <div class="col-md-4">
-                            <%= check_box_tag "q[is_unheated_eq_any]", "true" %> Unheated
+                          <div class="col-md-4">  
+                            <%= check_box_tag "q[is_unheated_eq_any]", "true" %> Heated
                           </div>
                         </div>  
                       </div>

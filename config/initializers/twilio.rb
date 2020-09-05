@@ -1,9 +1,9 @@
 Twilio.configure do |config|
 # TEST  
-  # config.account_sid = 'ACac26d02118ddecfba44ec5d91aed286f'
-  # config.auth_token = '705a9d6ac14d5e30613deb639e95415d'
+  config.account_sid = 'AC6203e75dbf9cd35f71f3794343fd6ae8'
+  config.auth_token = 'dfbde9bb12a0a4cbcb522791c0adb035'
   
 # LIVE  
-  config.account_sid = ENV["TWILIO_SID"]
-  config.auth_token = ENV["TWILIO_AUTH"]
+  # config.account_sid = ENV["TWILIO_SID"]
+  # config.auth_token = ENV["TWILIO_AUTH"]
 end

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-3">
         <ul class="sidebar-list">
-          <li class="sidebar-item"><%= link_to "Current Listings", pools_path, class: "sidebar-link" %></li>
+          <li class="sidebar-item"><%= link_to "Current Listings", spaces_path, class: "sidebar-link" %></li>
           <li class="sidebar-item"><%= link_to "Current Reservations", current_reservations_path, class: "sidebar-link" %></li>
           <li class="sidebar-item"><%= link_to "Previous Reservations", previous_reservations_path, class: "sidebar-link active" %></li>
         </ul>
@@ -11,33 +11,37 @@
       <div class="col-md-9">
         <div class="panel panel-default">
           <div class="panel-heading">
-            Previously Booked Pools
+            Previously Booked Parking Space
           </div>
           <div class="panel-body">
           <div class="container">
             <% @spaces.each do |space| %>
               <div class="row">
                 <div class="container">
+                   
                   <div class="col-md-2">
                     <%= space.start_date.strftime('%D') %>
                     <p><%= space.status %></p>
                   </div>
+                   
                   <div class="col-md-2">
                     <div class="panel-heading-preview">
-                      <%= link_to pool_path(space.pool) do %>
-                        <%= image_tag space.pool.cover_photo(:thumb) %>
+                      <%= link_to space_path(space.space) do %>
+                        <%= image_tag space.space.cover_photo(:thumb) %>
                       <% end %>
                     </div>  
                   </div>
+                   
                   <div class="col-md-5">
-                    <%= link_to space.pool.listing_name, pool_path(space.pool) %><br/>
+                    <%= link_to space.space.listing_name, space_path(space.space) %><br/>
                     <span>
-                      <%= image_tag (space.pool.user.image), class: "img-circle avatar-small" %>
-                      <%= link_to user_path(space.pool.user) do %>
-                      <%= space.pool.user.fullname %>
+                      <%= image_tag (space.space.user.image), class: "img-circle avatar-small" %>
+                      <%= link_to user_path(space.space.user) do %>
+                      <%= space.space.user.fullname %>
                       <% end %>
                     </span>
                   </div>
+                   
                   <div class="col-md-3 text-right">
                     <%= render partial: "reviews/guest_form", locals: {reservation: space} if space.Approved? %>
                   </div>

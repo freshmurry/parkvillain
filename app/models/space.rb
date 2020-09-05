@@ -12,9 +12,9 @@ class Space < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   
   validates :space_type, presence: true
-  validates :accommodate, presence: true
-  validates :restrooms, presence: true
-  validates :lifesaver, presence: true
+  validates :is_handi_accessible, presence: true
+  validates :is_surveillance, presence: true
+  validates :is_electric_space, presence: true
 
   def cover_photo(size)
     if self.photos.length > 0

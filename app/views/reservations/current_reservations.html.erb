@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-3">
         <ul class="sidebar-list">
-          <li class="sidebar-item"><%= link_to "Current Listings", pools_path, class: "sidebar-link" %></li>
+          <li class="sidebar-item"><%= link_to "Current Listings", spaces_path, class: "sidebar-link" %></li>
           <li class="sidebar-item"><%= link_to "Current Reservations", current_reservations_path, class: "sidebar-link active" %></li>
           <li class="sidebar-item"><%= link_to "Previous Reservations", previous_reservations_path, class: "sidebar-link" %></li>
         </ul>
@@ -15,8 +15,8 @@
           </div>
           <div class="panel-body">
             <div class="container">
-              <% @pools.each do |pool| %>
-                  <% pool.reservations.each do |reservation| %>
+              <% @spaces.each do |space| %>
+                  <% space.reservations.each do |reservation| %>
                       <div class="row">
                         <div class="container">
                           <div class="col-md-3">
@@ -42,9 +42,9 @@
                           </div>
                           
                           <div class="col-md-4">
-                            <%= link_to pool_path(reservation.pool) do %>
-                                <%= image_tag reservation.pool.cover_photo(:medium) %>
-                                <%= link_to reservation.pool.listing_name, pool_path(reservation.pool) %>
+                            <%= link_to space_path(reservation.space) do %>
+                                <%= image_tag reservation.space.cover_photo(:medium) %>
+                                <%= link_to reservation.space.listing_name, space_path(reservation.space) %>
                             <% end %>
                           </div>
                         </div>
@@ -55,7 +55,7 @@
               <div class="col-md-12 text-center">
                 <% if @reservations.blank? %>
                   <h3>You don't have any current reservations</h3><br/>
-                  <%= link_to "Search Pools", search_path, class: "btn btn-normal" %>
+                  <%= link_to "Search Parking Space", search_path, class: "btn btn-normal" %>
                 <% else %>
                   <%= column_chart @reservation.Waiting, colors: ["#16A085"] %>
                 <% end %>
