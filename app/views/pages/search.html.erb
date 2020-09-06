@@ -55,15 +55,15 @@
                   <div class="col-md-4">
                     <div class="form-group select">
                       <label>Surveillance</label>
-                      <%= f.select :is_surveillance, [["CCTV", "CCTV"], ["24/7 Parking Attendant", "24/7 Parking Attendant"], ["None", "None"]], id: "is_surveillance", prompt: "Select...", class: "form-control" %>
+                      <%= f.select :surveillance, [["Surveillance", "Surveillance"], ["No Surveillance", "No Surveillance"]], id: "surveillance", prompt: "Select...", class: "form-control" %>
                     </div>
                   </div>
                   
                   <div class="col-md-4">
                   <div class="form-group select">
                     <label>Electric Vehicle Space</label>
-                      <%= f.select :is_electric_space_gteq, [["Yes", "Yes"], ["No", "No"]],
-                       id: "is_electric_space", prompt: "Select...", class: "form-control" %>
+                      <%= f.select :electric_space_gteq, [["Charging Port", "Charging Port"], ["No Charing Port", "No Charging Port"]],
+                       id: "electric_space", prompt: "Select...", class: "form-control" %>
                     </div>
                   </div>
                 </div>
@@ -75,11 +75,19 @@
                       <div class="panel-body">
                         <div class="container">
                           <div class="col-md-4">
-                            <%= check_box_tag "q[is_handi_accessible_eq_any]", "true" %> Handi-Accessible
+                            <%= check_box_tag "q[handi_accessible_eq_any]", "true" %> Handi-Accessible
                           </div>
                           
                           <div class="col-md-4">
                             <%= check_box_tag "q[is_elevator_eq_any]", "true" %> Elevator
+                          </div>
+                          
+                          <div class="col-md-4">
+                            <%= check_box_tag "q[is_stairs_eq_any]", "true" %> Stairs
+                          </div>
+                          
+                          <div class="col-md-4">
+                            <%= check_box_tag "q[is_parking_attendant_eq_any]", "true" %> Parking Attendant
                           </div>
                           
                           <div class="col-md-4">
