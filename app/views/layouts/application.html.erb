@@ -24,22 +24,22 @@
     <meta name="description" content="ParkVillain allows you to book and rent parking spaces near you.">
     <meta name="google-site-verification" content="" />
     <meta property="og:site_name" content="ParkVillain" />
-    <meta property="og:url" content="https://parkvillain.com" />
+    <meta property="og:url" content="parkvillain.com" />
     <meta property="og:title" content="ParkVillain | Book and Rent a Parking Space" />
-    <meta property="og:description" content="" />
+    <meta property="og:description" content="ParkVillain allows you to book and rent parking spaces near you." />
     <meta property="og:type" content="website"/>
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="background-image: url('/assets/marina-city-parking.jpg')" />
+    <meta property="og:image" content="background-image: url('https://cdn.pixabay.com/photo/2016/07/23/00/57/marina-1536139_1280.jpg')" />
     
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://parkvillain.com">
+    <meta name="twitter:url" content="parkvillain.com">
     <meta name="twitter:title" content="Book and Rent a Parking Space" />
-    <meta name="twitter:image" content="background-image: url('/assets/marina-city-parking.jpg')" />
+    <meta name="twitter:image" content="background-image: url('https://cdn.pixabay.com/photo/2016/07/23/00/57/marina-1536139_1280.jpg')" />
     
     <meta name="facebook:card" content="summary" />
-    <meta name="facebook:url" content="https://parkvillain.com">
+    <meta name="facebook:url" content="parkvillain.com">
     <meta name="facebook:title" content="Book and Rent a Parking Space" />
-    <meta name="facebook:image" content="background-image: url('/assets/marina-city-parking.jpg')" />
+    <meta name="facebook:image" content="background-image: url('https://cdn.pixabay.com/photo/2016/07/23/00/57/marina-1536139_1280.jpg')" />
     
     <script type="text/javascript" async="" src="https://secure.quantserve.com/quant.js"></script>
     <script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
@@ -47,6 +47,16 @@
     
     <!-- FLIPPA -->
     <meta name="verifyownership" content=""/>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NJHZ9NQ6Y7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-NJHZ9NQ6Y7');
+    </script>
   </head>
 
   <body>
@@ -61,16 +71,6 @@
     <!--<div class="container">-->
     	<%= yield %>
     <!--</div>-->
-    
-   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-04QYSCZVBK"></script>-->
-  <!--<script>-->
-  <!--  window.dataLayer = window.dataLayer || [];-->
-  <!--  function gtag(){dataLayer.push(arguments);}-->
-  <!--  gtag('js', new Date());-->
-  
-  <!--  gtag('config', 'G-04QYSCZVBK');-->
-  <!--</script>-->
 
     <%= render 'shared/footer' %>
     <% debug(params) if Rails.env.development? %>
