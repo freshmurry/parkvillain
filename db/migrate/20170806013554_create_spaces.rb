@@ -13,6 +13,7 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
       t.boolean :is_electric_space
       t.boolean :is_stairs
       t.boolean :is_elevator
+      t.boolean :is_parking_attendant
       t.integer :price
       t.integer :tip
       t.boolean :active

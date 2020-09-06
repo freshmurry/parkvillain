@@ -97,13 +97,13 @@
                       </div>
                       <div class="col-xs-4 col-sm-4 col-md-4">
                         <ul class="amenities">
-                          <li class="<%= 'text-line-through' if !@space.is_parking_attendant %>">Parking Attendant</li>
+                          <li class="<%= 'text-line-through' if !@space.is_unheated %>">Unheated</li>
+                          <li class="<%= 'text-line-through' if !@space.is_heated %>">Heated</li>
                         </ul>
                       </div>
                       <div class="col-xs-4 col-sm-4 col-md-4">
                         <ul class="amenities">
-                          <li class="<%= 'text-line-through' if !@space.is_unheated %>">Unheated</li>
-                          <li class="<%= 'text-line-through' if !@space.is_heated %>">Heated</li>
+                          <li class="<%= 'text-line-through' if !@space.is_parking_attendant %>">Parking Attendant</li>
                         </ul>
                       </div>
                     </div>

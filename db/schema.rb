@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.boolean  "is_electric_space"
     t.boolean  "is_stairs"
     t.boolean  "is_elevator"
+    t.boolean  "is_parking_attendant"
     t.integer  "price"
     t.integer  "tip"
     t.boolean  "active"
@@ -117,8 +118,8 @@ ActiveRecord::Schema.define(version: 20180109174910) do
     t.float    "longitude"
     t.integer  "instant"
     t.integer  "user_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.index ["user_id"], name: "index_spaces_on_user_id"
   end
 
