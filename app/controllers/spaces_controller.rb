@@ -96,7 +96,7 @@ class SpacesController < ApplicationController
       
       check.size > 0 || check_2.size > 0 ? true : false 
     end
-
+    
     def set_space
       @space = Space.find(params[:id])
     end
