@@ -6,11 +6,11 @@ class CreateSpaces < ActiveRecord::Migration[5.0]
       t.string :address
       t.string :listing_name
       t.text :description
+      t.string :surveillance
+      t.string :electric_space
+      t.string :handi_accessible
       t.boolean :is_unheated_space
       t.boolean :is_heated_space
-      t.boolean :is_surveillance
-      t.boolean :is_handi_accessible
-      t.boolean :is_electric_space
       t.boolean :is_stairs
       t.boolean :is_elevator
       t.boolean :is_parking_attendant

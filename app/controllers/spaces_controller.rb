@@ -110,7 +110,7 @@ class SpacesController < ApplicationController
     end
 
     def space_params
-      params.require(:space).permit(:space_type, :listing_name, :description, :address, :is_unheated_space, :is_heated_space, 
-      :is_handi_accessible, :is_surveillance, :is_elevator, :is_parking_attendant, :is_stairs, :is_electric_space, :price, :active, :instant)
+      params.require(:space).permit(:space_type, :listing_name, :description, :address, :handi_accessible, :surveillance, 
+      :electric_space, :is_unheated_space, :is_heated_space, :is_elevator, :is_parking_attendant, :is_stairs, :price, :active, :instant)
     end
 end

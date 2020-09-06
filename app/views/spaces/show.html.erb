@@ -45,7 +45,7 @@
               <i class="fas fa-archive fa-2x"></i>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
-              <i class="fa fa-wheelchair-alt fa-2x"></i>
+              <i class="fas fa-wheelchair fa-2x"></i>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
               <i class="fas fa-battery-full fa-2x"></i>
@@ -57,9 +57,9 @@
         
           <div class="row text-center">
             <div class="col-xs-3 col-sm-3 col-md-3"><%= @space.space_type %></div>
-            <div class="col-xs-3 col-sm-3 col-md-3"><%= @space.is_handi_accessible %></div>
-            <div class="col-xs-3 col-sm-3 col-md-3"><%= @space.is_electric_space %></div>
-            <div class="col-xs-3 col-sm-3 col-md-3"><%= @space.is_surveillance %></div>
+            <div class="col-xs-3 col-sm-3 col-md-3"><%= @space.handi_accessible %></div>
+            <div class="col-xs-3 col-sm-3 col-md-3"><%= @space.electric_space %></div>
+            <div class="col-xs-3 col-sm-3 col-md-3"><%= @space.surveillance %></div>
           </div>
         </div>  
         <hr/>
@@ -90,15 +90,15 @@
                     <div class="row">
                       <div class="col-xs-4 col-sm-4 col-md-4">
                         <ul class="amenities">
-                          <li class="<%= 'text-line-through' if !@space.is_handi_accessible %>">Handi-Accessible</li>
+                          <li class="<%= 'text-line-through' if !@space.handi_accessible %>">Handi-Accessible</li>
                           <li class="<%= 'text-line-through' if !@space.is_elevator %>">Elevator</li>
                           <li class="<%= 'text-line-through' if !@space.is_stairs %>">Stairs</li>
                         </ul>
                       </div>
                       <div class="col-xs-4 col-sm-4 col-md-4">
                         <ul class="amenities">
-                          <li class="<%= 'text-line-through' if !@space.is_unheated %>">Unheated</li>
-                          <li class="<%= 'text-line-through' if !@space.is_heated %>">Heated</li>
+                          <li class="<%= 'text-line-through' if !@space.is_unheated_space %>">Unheated</li>
+                          <li class="<%= 'text-line-through' if !@space.is_heated_space %>">Heated</li>
                         </ul>
                       </div>
                       <div class="col-xs-4 col-sm-4 col-md-4">

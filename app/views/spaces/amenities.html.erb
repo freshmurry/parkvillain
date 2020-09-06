@@ -15,27 +15,39 @@
             <div class="container">
               <%= form_for @space do |f| %>
     
-                  <div class="row form-group">
+                  <div class="form-group">
                     <div class="col-md-4">
                       <%= f.check_box :is_heated_space %> Heated Space
                     </div>
                   </div>
     
-                  <div class="row form-group">
+                  <div class="form-group">
                     <div class="col-md-4">
-                      <%= f.check_box :is_chairs %> Unheated Space
+                      <%= f.check_box :is_unheated_space %> Unheated Space
                     </div>
                   </div>
                   
-                  <div class="row form-group">
+                  <div class="form-group">
                     <div class="col-md-4">
-                      <%= f.check_box :is_handi_accessible %> Handi-Accessible
+                      <%= f.check_box :is_elevator %> Elevator
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="col-md-4">
+                      <%= f.check_box :is_stairs %> Stairs
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="col-md-4">
+                      <%= f.check_box :is_parking_attendant %> Parking Attendant
                     </div>
                   </div>
                   
                   <br/><br/>
     
-                  <div class="text-center">
+                  <div class="row text-center">
                     <%= f.submit "Save", class: "btn btn-form" %>
                   </div>
               <% end %>

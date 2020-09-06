@@ -21,23 +21,23 @@
                 <div class="col-md-4 select">
                   <div class="form-group">
                     <label>Surveillance</label>
-                    <%= f.select :is_surveillance, [["Yes", "Yes"], ["No", "No"]], 
-                       id: "is_surveillance", prompt: "Select...", class: "form-control" %>
+                    <%= f.select :surveillance, [["Surveillance", "Surveillance"], ["No Surveillance", "No Surveillance"]], 
+                       id: "surveillance", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                          
                 <div class="col-md-4 select">
                   <div class="form-group">
                     <label>Electric Space</label>
-                    <%= f.select :is_electric_space, [["Yes", "Yes"], ["No", "No"]], id: "restrooms", prompt: "Select...", class: "form-control" %>
+                    <%= f.select :electric_space, [["Charge Port", "Charge Port"], ["No Charge Port", "No Charge Port"]], id: "restrooms", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                 
                 <div class="col-md-4 select">
                   <div class="form-group">
                     <label>Accessible</label>
-                    <%= f.select :is_handi_accessible, [["Yes", "Yes"], ["No", "No"]],
-                      id: "is_handi_accessible", prompt: "Select...", class: "form-control" %>
+                    <%= f.select :handi_accessible, [["Accessible", "Accessible"], ["Not Accessible", "Not Accessible"]],
+                      id: "handi_accessible", prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
                 
