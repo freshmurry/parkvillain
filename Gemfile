@@ -46,7 +46,7 @@ gem 'aws-sdk', '~> 2.8'
 
 
 gem 'geocoder', '~> 1.5'
-gem 'jquery-ui-rails', '~> 5.0'
+gem 'jquery-ui-rails', '~> 6.0'
 
 gem 'ransack', '~> 1.7'
 gem 'puma'
